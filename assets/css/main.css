@@ -383,6 +383,60 @@ h6 {
   }
 }
 
+/* Dropdown Menu */
+.navmenu .dropdown {
+  position: relative;
+}
+
+.navmenu .dropdown-menu {
+  display: none;
+  position: absolute;
+  left: 0;
+  top: calc(100% + 30px);
+  z-index: 99;
+  opacity: 0;
+  visibility: hidden;
+  padding: 10px 0;
+  background: var(--nav-dropdown-background-color);
+  box-shadow: 0px 0px 30px rgba(127, 137, 161, 0.25);
+  transition: 0.3s;
+  border-radius: 4px;
+  min-width: 200px;
+}
+
+.navmenu .dropdown-menu li {
+  padding: 10px 20px;
+}
+
+.navmenu .dropdown:hover > .dropdown-menu {
+  opacity: 1;
+  visibility: visible;
+  top: 100%;
+  display: block;
+}
+
+.navmenu .dropdown-menu a {
+  padding: 10px 20px;
+  font-size: 15px;
+  color: var(--nav-dropdown-color);
+  text-transform: none;
+  font-weight: 400;
+}
+
+.navmenu .dropdown-menu a:hover {
+  color: var(--nav-dropdown-hover-color);
+}
+
+.navmenu .dropdown:hover > a {
+  color: var(--nav-hover-color);
+}
+
+.navmenu .dropdown-menu .dropdown-indicator {
+  margin-left: auto;
+  transition: 0.3s;
+  transform: rotate(-90deg);
+}
+
 /* Navmenu - Mobile */
 @media (max-width: 1199px) {
   .mobile-nav-toggle {
@@ -1499,134 +1553,126 @@ section,
 # Service Details Section
 --------------------------------------------------------------*/
 .service-details .service-box {
-  background-color: var(--surface-color);
-  padding: 20px;
-  box-shadow: 0px 2px 20px rgba(0, 0, 0, 0.1);
-}
-
-.service-details .service-box+.service-box {
-  margin-top: 30px;
-}
-
-.service-details .service-box h4 {
-  font-size: 20px;
-  font-weight: 700;
-  border-bottom: 2px solid color-mix(in srgb, var(--default-color), transparent 92%);
-  padding-bottom: 15px;
-  margin-bottom: 15px;
-}
-
-.service-details .services-list {
-  background-color: var(--surface-color);
+  background: var(--surface-color);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
 }
 
 .service-details .services-list a {
-  color: color-mix(in srgb, var(--default-color), transparent 20%);
-  background-color: color-mix(in srgb, var(--default-color), transparent 96%);
   display: flex;
   align-items: center;
-  padding: 12px 15px;
-  margin-top: 15px;
-  transition: 0.3s;
+  padding: 12px 20px;
+  color: var(--default-color);
+  text-decoration: none;
+  border-radius: 6px;
+  transition: all 0.3s;
+  margin-bottom: 8px;
 }
 
-.service-details .services-list a:first-child {
-  margin-top: 0;
+.service-details .services-list a:hover,
+.service-details .services-list a.active {
+  background: var(--accent-color);
+  color: var(--contrast-color);
 }
 
 .service-details .services-list a i {
-  font-size: 16px;
-  margin-right: 8px;
-  color: var(--accent-color);
-}
-
-.service-details .services-list a.active {
-  color: var(--contrast-color);
-  background-color: var(--accent-color);
-}
-
-.service-details .services-list a.active i {
-  color: var(--contrast-color);
-}
-
-.service-details .services-list a:hover {
-  background-color: color-mix(in srgb, var(--accent-color), transparent 95%);
-  color: var(--accent-color);
-}
-
-.service-details .download-catalog a {
-  color: var(--default-color);
-  display: flex;
-  align-items: center;
-  padding: 10px 0;
-  transition: 0.3s;
-  border-top: 1px solid color-mix(in srgb, var(--default-color), transparent 90%);
-}
-
-.service-details .download-catalog a:first-child {
-  border-top: 0;
-  padding-top: 0;
-}
-
-.service-details .download-catalog a:last-child {
-  padding-bottom: 0;
-}
-
-.service-details .download-catalog a i {
-  font-size: 24px;
-  margin-right: 8px;
-  color: var(--accent-color);
-}
-
-.service-details .download-catalog a:hover {
-  color: var(--accent-color);
+  font-size: 20px;
+  margin-right: 10px;
 }
 
 .service-details .help-box {
-  background-color: var(--accent-color);
+  background: linear-gradient(135deg, var(--accent-color) 0%, var(--accent-dark) 100%);
   color: var(--contrast-color);
-  margin-top: 30px;
-  padding: 30px 15px;
+  padding: 2rem;
+  border-radius: 10px;
+  text-align: center;
 }
 
 .service-details .help-box .help-icon {
   font-size: 48px;
+  margin-bottom: 1rem;
 }
 
-.service-details .help-box h4,
-.service-details .help-box a {
+.service-details .help-box .btn-demo {
+  display: inline-block;
+  padding: 10px 25px;
+  background: var(--contrast-color);
+  color: var(--accent-color);
+  border-radius: 50px;
+  margin-top: 15px;
+  font-weight: 500;
+  transition: all 0.3s;
+}
+
+.service-details .help-box .btn-demo:hover {
+  background: var(--accent-dark);
   color: var(--contrast-color);
 }
 
-.service-details .services-img {
-  margin-bottom: 20px;
+.service-detail-section {
+  display: none;
+  animation: fadeIn 0.5s ease-in-out;
 }
 
-.service-details h3 {
-  font-size: 26px;
-  font-weight: 700;
+.service-detail-section.active {
+  display: block;
 }
 
-.service-details p {
-  font-size: 15px;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.service-details ul {
-  list-style: none;
-  padding: 0;
-  font-size: 15px;
+.features-list ul li {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-.service-details ul li {
-  padding: 5px 0;
-  display: flex;
-  align-items: center;
+.features-list ul li:last-child {
+  border-bottom: none;
 }
 
-.service-details ul i {
-  font-size: 20px;
-  margin-right: 8px;
+.features-list ul li span {
+  font-weight: 600;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.features-list ul li i {
   color: var(--accent-color);
+  margin-right: 10px;
+}
+
+.target-audience ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.target-audience ul li {
+  background: var(--surface-color);
+  padding: 15px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.target-audience ul li i {
+  font-size: 24px;
+  color: var(--accent-color);
+  margin-bottom: 10px;
+  display: block;
 }
 
 /*--------------------------------------------------------------
@@ -2669,4 +2715,104 @@ section,
   padding-left: 5px;
   color: color-mix(in srgb, var(--default-color), transparent 60%);
   font-size: 14px;
+}
+
+/*--------------------------------------------------------------
+# Service Box
+--------------------------------------------------------------*/
+.service-box {
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+}
+
+/*--------------------------------------------------------------
+# Services List
+--------------------------------------------------------------*/
+.services-list a {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  color: var(--default-color);
+  text-decoration: none;
+  border-radius: 6px;
+  transition: all 0.3s;
+}
+
+.services-list a:hover,
+.services-list a.active {
+  background: var(--accent-color);
+  color: #fff;
+}
+
+.services-list a i {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+/*--------------------------------------------------------------
+# Help Box
+--------------------------------------------------------------*/
+.help-box {
+  background: linear-gradient(45deg, var(--accent-dark), var(--accent-color));
+  color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.help-box .help-icon {
+  font-size: 48px;
+  margin-bottom: 15px;
+}
+
+/*--------------------------------------------------------------
+# Service Detail Section
+--------------------------------------------------------------*/
+.service-detail-section {
+  display: none;
+}
+
+.service-detail-section.active {
+  display: block;
+}
+
+/*--------------------------------------------------------------
+# Features List
+--------------------------------------------------------------*/
+.features-list ul li {
+  padding: 15px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.features-list ul li i {
+  color: var(--accent-color);
+  margin-right: 10px;
+}
+
+/*--------------------------------------------------------------
+# Target Audience
+--------------------------------------------------------------*/
+.target-audience ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  padding: 0;
+  list-style: none;
+}
+
+.target-audience ul li {
+  background: #f8f9fa;
+  padding: 10px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.target-audience ul li i {
+  color: var(--accent-color);
+  font-size: 24px;
+  display: block;
+  margin-bottom: 5px;
 }

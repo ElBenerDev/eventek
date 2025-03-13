@@ -1,11 +1,3 @@
-/**
-* Template Name: Moderna
-* Template URL: https://bootstrapmade.com/free-bootstrap-template-corporate-moderna/
-* Updated: Aug 07 2024 with Bootstrap v5.3.3
-* Author: BootstrapMade.com
-* License: https://bootstrapmade.com/license/
-*/
-
 (function() {
   "use strict";
 
@@ -194,6 +186,81 @@
       }, false);
     });
 
+  });
+
+  // Service Details Navigation
+  document.addEventListener('DOMContentLoaded', function() {
+    const serviceLinks = document.querySelectorAll('.services-list a');
+    const serviceSections = document.querySelectorAll('.service-detail-section');
+  
+    serviceLinks.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Remove active classes
+        serviceLinks.forEach(l => l.classList.remove('active'));
+        serviceSections.forEach(s => s.classList.remove('active'));
+        
+        // Add active class to clicked link
+        this.classList.add('active');
+        
+        // Show corresponding section
+        const targetId = this.getAttribute('href').substring(1);
+        document.getElementById(targetId).classList.add('active');
+      });
+    });
+  });
+
+  // Service Details Section Navigation
+  document.addEventListener('DOMContentLoaded', function() {
+    if (document.querySelector('.service-details-page')) {
+      const serviceLinks = document.querySelectorAll('.services-list a, .dropdown-menu a');
+      const serviceSections = document.querySelectorAll('.service-detail-section');
+  
+      // Function to show specific service section
+      function showServiceSection(sectionId) {
+        // Hide all sections
+        serviceSections.forEach(section => section.classList.remove('active'));
+        serviceLinks.forEach(link => link.classList.remove('active'));
+  
+        // Show selected section
+        const targetSection = document.getElementById(sectionId);
+        const targetLink = document.querySelector(`.services-list [href="#${sectionId}"]`);
+        
+        if (targetSection) {
+          targetSection.classList.add('active');
+        }
+        if (targetLink) {
+          targetLink.classList.add('active');
+        }
+      }
+  
+      // Handle direct URL access with hash
+      if (window.location.hash) {
+        const sectionId = window.location.hash.substring(1);
+        showServiceSection(sectionId);
+      }
+  
+      // Handle navigation clicks from both side menu and dropdown
+      serviceLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          // Only prevent default for side menu links
+          if (this.closest('.services-list')) {
+            e.preventDefault();
+          }
+          
+          const href = this.getAttribute('href');
+          const sectionId = href.includes('#') ? href.split('#')[1] : href;
+          
+          showServiceSection(sectionId);
+          
+          // Update URL without page reload for side menu clicks
+          if (this.closest('.services-list')) {
+            history.pushState(null, '', `#${sectionId}`);
+          }
+        });
+      });
+    }
   });
 
 })();

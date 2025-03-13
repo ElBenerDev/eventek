@@ -42,7 +42,15 @@
         <ul>
           <li><a href="index.html" class="active">Inicio</a></li>
           <li><a href="index.html#about">Nosotros</a></li>
-          <li><a href="index.html#featured-services">Servicios</a></li>
+          <li class="dropdown">
+            <a href="service-details.html"><span>Servicios</span> <i class="bi bi-chevron-down dropdown-indicator"></i></a>
+            <ul class="dropdown-menu">
+              <li><a href="service-details.html#basico">Plan Básico B2C</a></li>
+              <li><a href="service-details.html#profesional">Plan Profesional B2B</a></li>
+              <li><a href="service-details.html#expert">Plan Expert</a></li>
+              <li><a href="service-details.html#addons">Servicios Adicionales</a></li>
+            </ul>
+          </li>
           <li><a href="index.html#features">Características</a></li>
           <li><a href="index.html#footer">Contacto</a></li>
         </ul>
@@ -105,62 +113,48 @@
 
     <!-- Featured Services Section -->
     <section id="featured-services" class="featured-services section">
-
       <div class="container">
-
         <div class="row gy-4">
-
-          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <!-- Servicio Básico B2C -->
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
             <div class="service-item item-cyan position-relative">
               <div class="icon">
-                <i class="bi bi-robot"></i>
+                <i class="bi bi-stars"></i>
               </div>
-              <a href="service-details.html" class="stretched-link">
-                <h3>Asistentes IA</h3>
+              <a href="service-details.html#basico" class="stretched-link">
+                <h3>Plan Básico B2C</h3>
               </a>
-              <p>Automatización inteligente de respuestas y atención al cliente 24/7 para tu evento mediante IA avanzada.</p>
+              <p>Solución ideal para eventos pequeños y celebraciones privadas. Incluye asistente virtual 24/7 y gestión de comunicaciones.</p>
             </div>
-          </div><!-- End Service Item -->
+          </div>
 
-          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <!-- Servicio Profesional B2B -->
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
             <div class="service-item item-orange position-relative">
               <div class="icon">
-                <i class="bi bi-chat-dots"></i>
+                <i class="bi bi-diagram-3"></i>
               </div>
-              <a href="service-details.html" class="stretched-link">
-                <h3>WhatsApp & RRSS</h3>
+              <a href="service-details.html#profesional" class="stretched-link">
+                <h3>Plan Profesional B2B</h3>
               </a>
-              <p>Integración con WhatsApp Business y redes sociales para una comunicación fluida y centralizada.</p>
+              <p>Solución avanzada para eventos medianos y grandes, con CRM integrado y análisis de datos.</p>
             </div>
-          </div><!-- End Service Item -->
+          </div>
 
-          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+          <!-- Servicio Expert -->
+          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
             <div class="service-item item-teal position-relative">
               <div class="icon">
-                <i class="bi bi-clipboard-data"></i>
+                <i class="bi bi-gear-wide-connected"></i>
               </div>
-              <a href="service-details.html" class="stretched-link">
-                <h3>Análisis de Datos</h3>
+              <a href="service-details.html#expert" class="stretched-link">
+                <h3>Plan Expert</h3>
               </a>
-              <p>Seguimiento y análisis detallado del evento para optimizar futuras ediciones y mejorar la experiencia.</p>
+              <p>Gestión integral para organizadores de eventos, con herramientas avanzadas de coordinación y análisis.</p>
             </div>
-          </div><!-- End Service Item -->
-
-          <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
-            <div class="service-item item-red position-relative">
-              <div class="icon">
-                <i class="bi bi-bell"></i>
-              </div>
-              <a href="service-details.html" class="stretched-link">
-                <h3>Notificaciones</h3>
-              </a>
-              <p>Sistema de alertas y notificaciones en tiempo real para mantener informados a todos los asistentes.</p>
-            </div>
-          </div><!-- End Service Item -->
+          </div>
         </div>
-
       </div>
-
     </section><!-- /Featured Services Section -->
 
     <!-- About Section -->
@@ -283,10 +277,9 @@
         <div class="col-lg-2 col-md-3 footer-links">
           <h4>Nuestros Servicios</h4>
           <ul>
-            <li><i class="bi bi-chevron-right"></i> <a href="index.html#featured-services">Asistentes IA</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="index.html#featured-services">WhatsApp & RRSS</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="index.html#featured-services">Análisis de Datos</a></li>
-            <li><i class="bi bi-chevron-right"></i> <a href="index.html#featured-services">Gestión de Eventos</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="service-details.html#basico">Plan Básico</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="service-details.html#profesional">Plan Profesional</a></li>
+            <li><i class="bi bi-chevron-right"></i> <a href="service-details.html#expert">Plan Expert</a></li>
           </ul>
         </div>
 
